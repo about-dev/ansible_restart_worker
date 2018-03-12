@@ -1,0 +1,15 @@
+---
+- name: "Run list of servers on {{ country_code }}"
+  command: sudo get_servers list {{ country_code }} {{ service_type }}
+  register: command_result
+  tags: get_service_list
+
+- name: "Prepare result to forward"
+  command: echo "{{ command_result.stdout|from_json|json_query(x_query) }}"
+  register: array_result
+  vars:
+    x_query: "{{ country_code }}.{{ service_type }}[?contains(@, '{{ service_type }}') == `true`]"
+
+- name: "Set servers list into facts"
+  set_fact: service_servers={{ array_result.stdout }}
+

@@ -1,0 +1,11 @@
+---
+- name: "Create an inventory template locally for gearman servers"
+  local_action:
+    module: template
+    src: /MY_PATH/roles/gearman/templates/gearman_inventory.yml
+    dest: /MY_PATH/inventories
+
+- name: "Rename the inventory"
+  local_action: command mv /MY_PATH/inventories/gearman_inventory.yml /MY_PATH/inventories/gearman.yml
+
+

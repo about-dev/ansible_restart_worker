@@ -1,0 +1,8 @@
+gearman:
+  hosts:
+{% for elem in service_servers %}
+    {{ elem }}:
+      ansible_connection: {{ connection_type }}
+      ansible_user: {{ user_name }}
+      ansible_pass: {{ user_pass }}
+{% endfor %}

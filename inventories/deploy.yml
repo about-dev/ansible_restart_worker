@@ -1,0 +1,7 @@
+---
+deploy:
+  hosts:
+    eos-deploy1-all-build.emag.ro:
+      ansible_connection: "{{ connection_type }}"
+      ansible_user: "{{ user_name }}"
+      ansible_pass: "{{ user_pass }}"

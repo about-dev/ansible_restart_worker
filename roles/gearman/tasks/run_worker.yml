@@ -1,0 +1,4 @@
+---
+- name: "Run supervisor for country_code={{ country_code }} and {{ worker }} worker and {{ worker_action }} action"
+  local_action:
+    command ansible-playbook -i /MY_PATH/inventories/gearman.yml /MY_PATH/playbooks/gearman.yml -e "country_code={{ country_code }}" -e "worker={{ worker }}" -e "worker_action={{ worker_action }}"

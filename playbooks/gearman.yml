@@ -1,0 +1,10 @@
+---
+- hosts: gearman
+  gather_facts: no
+  tasks:
+    - name: "Restarting worker"
+      command: supervisorctl -s "http://127.0.0.1:8989" -u admin -p parola "{{ worker_action }}" "{{ worker }}":*
+      vars:
+        connection_user_type: "{{ connection_type }}"
+        connection_user_name: "{{ user_name }}"
+        connection_user_pass: "{{ user_pass }}"

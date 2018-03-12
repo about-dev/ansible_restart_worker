@@ -1,0 +1,4 @@
+---
+- import_tasks: /MY_PATH/roles/deploy/tasks/service_list.yml
+- import_tasks: /MY_PATH/roles/common/tasks/create_inventory.yml
+- import_tasks: /MY_PATH/roles/gearman/tasks/run_worker.yml
